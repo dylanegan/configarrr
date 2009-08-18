@@ -16,6 +16,10 @@ describe Configarrr::YAML do
       Configarrr::YAML.new(:file => file)
       File.exists?(file).should be_true
     end
+
+    it "sets options from the file" do
+      @config.first_key.should == "first_value"
+    end
   end
 
   it_should_behave_like "a Configarrr implementation"
