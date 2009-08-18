@@ -4,6 +4,16 @@
 
 == Usage:
 
+    config = Configarrr::Simple.configure do
+      set :key, :value
+      set :hash => { :other_key => :other_value }
+    end
+
+    >> config.key
+    => :value
+    >> config.hash[:other_key]
+    => :other_value
+
 == License:
 
 (The MIT License)
