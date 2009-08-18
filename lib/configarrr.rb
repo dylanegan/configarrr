@@ -1,3 +1,3 @@
 $:.unshift File.dirname(__FILE__)
 
-%w( base simple ).each { |lib| require "configarrr/#{lib}" }
+%w( base simple yaml ).each { |lib| require "configarrr/#{lib}" }
