@@ -22,5 +22,25 @@ describe Configarrr::YAML do
     end
   end
 
+  context "choosing a parent scalar" do
+    before do
+      @yaml_parent = Configarrr::YAML.new(:file => SPEC_DIR + '/fixtures/config.yml', :parent => 'parent')
+    end
+
+    it "should return the parents children" do
+      @yaml_parent.first_key.should == "first_parent_value"
+    end
+
+    it "should save all of the yaml, not just the parent scalar" do
+      @yaml_parent.to_hash.should == @config.to_hash
+    end
+
+    context "when it doesn't exist" do
+      it "should raise an ArgumentError" do
+        lambda { Configarrr::YAML.new(:file => SPEC_DIR + '/fixtures/config.yml', :parent => 'non_existant_parent') }.should raise_error(ArgumentError, "Please provide a valid parent value. non_existant_parent does not exist.")
+      end
+    end
+  end
+
   it_should_behave_like "a Configarrr implementation"
 end

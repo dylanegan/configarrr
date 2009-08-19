@@ -1,1 +1,3 @@
 first_key: first_value
+parent:
+  first_key: first_parent_value
