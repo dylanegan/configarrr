@@ -2,6 +2,8 @@
 
 == Description:
 
+A simple interface for providin' configuration. Not all o' me own creations. Parts borrowed, see Acknowledgements.
+
 == Usage:
 
     config = Configarrr::Simple.configure do
@@ -13,6 +15,10 @@
     => :value
     >> config.hash[:other_key]
     => :other_value
+
+== Acknowledgements:
+
+Sinatra - http://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb - borrowed set and metadef.
 
 == License:
 
