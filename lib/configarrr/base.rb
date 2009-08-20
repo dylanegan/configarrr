@@ -1,7 +1,8 @@
 module Configarrr
   class Base
     def initialize(options = {})
-      @options = []
+      @keys = []
+      parse_options(options)
     end
 
     def self.configure(options = {}, &block)
@@ -14,31 +15,34 @@ module Configarrr
       instance_eval(&block)
     end
 
-    def set(option, value=self)
+    def set(key, value=self)
       if value.kind_of?(Proc)
-        metadef(option, &value)
-        metadef("#{option}?") { !!__send__(option) }
-        metadef("#{option}=") { |val| set(option, Proc.new{val}) }
-        @options << option
-      elsif value == self && option.is_a?(Hash)
-        option.to_hash.each { |k,v| set(k, v) }
-      elsif respond_to?("#{option}=")
-        __send__ "#{option}=", value
-        @options << option
+        metadef(key, &value)
+        metadef("#{key}?") { !!__send__(key) }
+        metadef("#{key}=") { |val| set(key, Proc.new{val}) }
+        @keys << key 
+      elsif value == self && key.is_a?(Hash)
+        key.to_hash.each { |k,v| set(k, v) }
+      elsif respond_to?("#{key}=")
+        __send__ "#{key}=", value
+        @keys << key 
       else
-        set option, Proc.new{value}
+        set key, Proc.new{value}
       end
       self
     end
 
     def to_hash
-      @options.inject({}) do |hash, option|
-        hash[option] = __send__ "#{option}"
+      @keys.inject({}) do |hash, key|
+        hash[key] = __send__ "#{key}"
         hash
       end
     end
 
     private
+      def parse_options(options)
+      end
+
       def metadef(message, &block)
         (class << self; self; end).
           send :define_method, message, &block
