@@ -5,13 +5,14 @@ module Configarrr
     def initialize(options = {})
       raise ArgumentError, "Please provide a YAML file location." unless options[:file]
       super(options)
-      @file = File.expand_path(options[:file])
       ensure_file_exists
       @yaml = ::YAML.load_file(@file) || {}
-      if @parent = options[:parent] and @yaml.has_key? @parent
-        set @yaml[@parent]
-      elsif @parent
-        raise ArgumentError, "Please provide a valid parent value. #{@parent} does not exist."
+      set_yaml
+    end
+
+    def set_yaml
+      if @parent
+        @yaml.has_key?(@parent) ? set(@yaml[@parent]) : raise(Configarrr::OptionError, "Please provide a valid parent value. #{@parent} does not exist.")
       else
         set @yaml
       end
@@ -26,6 +27,12 @@ module Configarrr
     end
 
     private
+      def parse_options(options)
+        @file = File.expand_path(options.delete(:file))
+        @parent = options.delete(:parent)
+        super
+      end
+
       def ensure_file_exists
         unless ::File.exists?(@file)
           ::File.open(@file, "w") { |file| file << {}.to_yaml }

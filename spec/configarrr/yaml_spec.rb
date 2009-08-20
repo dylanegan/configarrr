@@ -36,8 +36,8 @@ describe Configarrr::YAML do
     end
 
     context "when it doesn't exist" do
-      it "should raise an ArgumentError" do
-        lambda { Configarrr::YAML.new(:file => SPEC_DIR + '/fixtures/config.yml', :parent => 'non_existant_parent') }.should raise_error(ArgumentError, "Please provide a valid parent value. non_existant_parent does not exist.")
+      it "should raise an Configarrr::OptionError" do
+        lambda { Configarrr::YAML.new(:file => SPEC_DIR + '/fixtures/config.yml', :parent => 'non_existant_parent') }.should raise_error(Configarrr::OptionError, "Please provide a valid parent value. non_existant_parent does not exist.")
       end
     end
   end
