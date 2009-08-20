@@ -22,8 +22,6 @@ Gem::Specification.new do |s|
      "lib/configarrr/yaml.rb",
      "spec/configarrr/base_spec.rb",
      "spec/configarrr/yaml_spec.rb",
-     "spec/fixtures/config.created.yml",
-     "spec/fixtures/config.parent.yml",
      "spec/fixtures/config.yml",
      "spec/shared.rb",
      "spec/spec.opts",

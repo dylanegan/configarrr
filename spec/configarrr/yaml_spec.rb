@@ -43,4 +43,10 @@ describe Configarrr::YAML do
   end
 
   it_should_behave_like "a Configarrr implementation"
+
+  after :all do
+    %w( created parent ).each do |file|
+      File.unlink(SPEC_DIR + "/fixtures/config.#{file}.yml") if File.exists?(SPEC_DIR + "/fixtures/config.#{file}.yml")
+    end
+  end
 end
