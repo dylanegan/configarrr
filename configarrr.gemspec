@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{configarrr}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dylan Egan"]
-  s.date = %q{2009-08-19}
+  s.date = %q{2009-08-20}
   s.description = %q{Actually it's not. It's just a way of handling configuration.}
   s.email = %q{dylanegan@gmail.com}
   s.extra_rdoc_files = [
