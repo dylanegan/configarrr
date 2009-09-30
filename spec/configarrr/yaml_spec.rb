@@ -1,5 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+class YAMLWithDefaults < Configarrr::YAML
+  def defaults
+    { 'first_key' => 1234, 'third_key' => 1234 }
+  end
+end
+
 describe Configarrr::YAML do
   before do
     @config = Configarrr::YAML.new(:file => SPEC_DIR + '/fixtures/config.yml')
@@ -39,6 +45,20 @@ describe Configarrr::YAML do
       it "should raise an Configarrr::OptionError" do
         lambda { Configarrr::YAML.new(:file => SPEC_DIR + '/fixtures/config.yml', :parent => 'non_existant_parent') }.should raise_error(Configarrr::OptionError, "Please provide a valid parent value. non_existant_parent does not exist.")
       end
+    end
+  end
+
+  context "providing default settings" do
+    before do
+      @yaml_with_defaults = YAMLWithDefaults.new(:file => SPEC_DIR + '/fixtures/config.yml')
+    end
+
+    it "should not override provided settings" do
+      @yaml_with_defaults.first_key.should_not == 1234
+    end
+
+    it "should provide setting if not provided" do
+      @yaml_with_defaults.third_key.should == 1234
     end
   end
 
