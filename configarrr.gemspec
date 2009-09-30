@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{configarrr}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dylan Egan"]
-  s.date = %q{2009-08-20}
+  s.date = %q{2009-09-30}
   s.description = %q{Actually it's not. It's just a way of handling configuration.}
   s.email = %q{dylanegan@gmail.com}
   s.extra_rdoc_files = [
@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/abcde/configarrr}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.4}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Pirates way of configuring, maties!}
   s.test_files = [
     "spec/configarrr/base_spec.rb",
