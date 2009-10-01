@@ -16,9 +16,9 @@ module Configarrr
 
     def set_yaml
       if @parent
-        @yaml.has_key?(@parent) ? set(defaults.merge(@yaml[@parent])) : raise(Configarrr::OptionError, "Please provide a valid parent value. #{@parent} does not exist.")
+        @yaml.has_key?(@parent) ? set(defaults.recursive_merge(@yaml[@parent])) : raise(Configarrr::OptionError, "Please provide a valid parent value. #{@parent} does not exist.")
       else
-        set defaults.merge(@yaml)
+        set defaults.recursive_merge(@yaml)
       end
     end
 

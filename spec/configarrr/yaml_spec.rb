@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 class YAMLWithDefaults < Configarrr::YAML
   def defaults
-    { 'first_key' => 1234, 'third_key' => 1234 }
+    { 'first_key' => 1234, 'third_key' => 1234, 'parent' => { 'fourth_key' => 12345 } }
   end
 end
 
@@ -59,6 +59,10 @@ describe Configarrr::YAML do
 
     it "should provide setting if not provided" do
       @yaml_with_defaults.third_key.should == 1234
+    end
+
+    it "should work with multidimensional hashes" do
+      @yaml_with_defaults.parent['fourth_key'].should == 12345
     end
   end
 
