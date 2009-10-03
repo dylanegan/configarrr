@@ -1,5 +1,5 @@
-require 'rubygems'
-require 'spec'
+require File.dirname(__FILE__) + '/../tmp/vendor/environment'
+Bundler.require_env(:test)
 
 SPEC_DIR = File.dirname(__FILE__) unless defined? SPEC_DIR
 $:<< SPEC_DIR
