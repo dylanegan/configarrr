@@ -12,3 +12,15 @@ begin
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
+
+require File.dirname(__FILE__) + '/tmp/vendor/environment'
+require 'spec/rake/spectask'
+
+Spec::Rake::SpecTask.new(:spec) do |t|
+  desc "Run all specs in spec directory"
+  t.spec_opts = ['--options', "\"spec/spec.opts\""]
+  t.spec_files = FileList['spec/**/*_spec.rb']
+end
+
+desc "Run all specs by default"
+task :default => :spec
