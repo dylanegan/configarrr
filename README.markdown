@@ -1,10 +1,10 @@
-= configarrr
+## configarrr
 
-== Description:
+### Description:
 
 A simple interface for providin' configuration. Not all o' me own creations. Parts borrowed, see Acknowledgements.
 
-== Usage:
+### Usage:
 
     config = Configarrr::Simple.configure do
       set :key, :value
@@ -16,11 +16,11 @@ A simple interface for providin' configuration. Not all o' me own creations. Par
     >> config.hash[:other_key]
     => :other_value
 
-== Acknowledgements:
+### Acknowledgements:
 
 Sinatra - http://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb - borrowed set and metadef.
 
-== License:
+### License:
 
 (The MIT License)
 
