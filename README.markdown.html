@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <title>README.markdown</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section docstring readme">
+        <p>A simple interface for providin&#8217; configuration. Not all o&#8217; me own creations. Parts borrowed, see Acknowledgements.</p>
+
+<pre class="code"><span class='config identifier id'>config</span> <span class='assign token'>=</span> <span class='Configarrr constant id'>Configarrr</span><span class='colon2 op'>::</span><span class='Simple constant id'>Simple</span><span class='dot token'>.</span><span class='configure identifier id'>configure</span> <span class='do do kw'>do</span>
+  <span class='set identifier id'>set</span> <span class='symbol val'>:key</span><span class='comma token'>,</span> <span class='symbol val'>:value</span>
+  <span class='set identifier id'>set</span> <span class='symbol val'>:hash</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:other_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:other_value</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+
+<span class='rshft op'>&gt;&gt;</span> <span class='config identifier id'>config</span><span class='dot token'>.</span><span class='key identifier id'>key</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:value</span>
+<span class='rshft op'>&gt;&gt;</span> <span class='config identifier id'>config</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='symbol val'>:other_key</span><span class='rbrack token'>]</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:other_value</span>
+</pre>
+
+<p>Sinatra - http://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb - borrowed set and metadef.</p>
+
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2009 Dylan Egan</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &#8216;Software&#8217;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </div>
+    </div>
+    <div id="yard_info">
+  Generated on Monday, October 12 2009 at 08:51:25 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.5 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>
