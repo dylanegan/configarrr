@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Module: CoreExt::Hash::RecursiveMerge</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section module CoreExt_Hash_RecursiveMerge">
+  <h1 class="title">Module: CoreExt::Hash::RecursiveMerge</h1>
+  <div class="section constants">
+  
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a title="#recursive_merge" href="#recursive_merge-instance_method">#recursive_merge</a></span><span class='args'>(other_hash)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a title="#recursive_merge!" href="#recursive_merge%21-instance_method">#recursive_merge!</a></span><span class='args'>(other_hash)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>recursive_merge</h3>
+</div><div id="recursive_merge-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>recursive_merge</span><span class='args'>(other_hash)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+12
+13
+14
+15
+16
+17</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/core_ext/hash/recursive_merge.rb', line 12</span>
+
+<span class='def def kw'>def</span> <span class='recursive_merge identifier id'>recursive_merge</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
+  <span class='r identifier id'>r</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>  <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='_old identifier id'>_old</span><span class='comma token'>,</span> <span class='_new identifier id'>_new</span><span class='bitor op'>|</span> 
+    <span class='r identifier id'>r</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='_old identifier id'>_old</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='integer val'>? </span><span class='_old identifier id'>_old</span><span class='dot token'>.</span><span class='recursive_merge identifier id'>recursive_merge</span><span class='lparen token'>(</span><span class='_new identifier id'>_new</span><span class='rparen token'>)</span> <span class='colon op'>:</span> <span class='_new identifier id'>_new</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>recursive_merge!</h3>
+</div><div id="recursive_merge!-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>recursive_merge!</span><span class='args'>(other_hash)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+6
+7
+8
+9
+10</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/core_ext/hash/recursive_merge.rb', line 6</span>
+
+<span class='def def kw'>def</span> <span class='recursive_merge! fid id'>recursive_merge!</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
+  <span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='_old identifier id'>_old</span><span class='comma token'>,</span> <span class='_new identifier id'>_new</span><span class='bitor op'>|</span> 
+      <span class='_old identifier id'>_old</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='integer val'>? </span><span class='_old identifier id'>_old</span><span class='dot token'>.</span><span class='recursive_merge! fid id'>recursive_merge!</span><span class='lparen token'>(</span><span class='_new identifier id'>_new</span><span class='rparen token'>)</span> <span class='colon op'>:</span> <span class='_new identifier id'>_new</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Monday, October 12 2009 at 08:51:26 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.5 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>
